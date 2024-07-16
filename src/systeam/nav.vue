@@ -1,55 +1,78 @@
 <template>
-    <div id="nav">
-        <!-- <el-tag v-for="(tag, index) in this.$store.state.activeRoute.Tags" :key="tag.title" closable type="success"
-            @close="handelClose(tag)" @click="tabClick(tag, index)"
-            :class="{ active: $store.state.activeRoute.tagIndex == index }">
-            {{ tag.title }}
-        </el-tag> -->
-    </div>
+    <header>
+        <div class="l-content">
+            <el-button plain icon="el-icon-menu" size="mini" @click="collapseMenu"></el-button>
+            <h3 style=" color : #fff">首页</h3>
+        </div>
+        <div class="r-content">
+            <el-dropdown trigger="click" size="mini">
+                <span class="el-dropdown-link"><img :src="userImg" class="user"/></span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>个人中心</el-dropdown-item>
+                    <el-dropdown-item @click.native="logOut">退出</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </div>
+    </header>
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            breadlist: []
+    export default {
+        data() {
+            return {
+                userImg: require('../assets/images/user.png')
+            }
+        },
+        methods: {
+            //控制左侧菜单是否折叠
+            collapseMenu() {
+                this.$store.commit('collapseMenu')
+            },
+            // //退出登陆
+            // logOut() {
+            //     location.reload()
+            // }
         }
-    },
-    //监听
-    watch: {
-
-    },
-    computed: {
-
-    },
-    methods: {
-        // increase() {
-        //     this.$store.commit('increment')
-        //     console.log(this.$store.state.count)
-        // }
-
-    },
-    created() {
-        console.log(this.$store)
     }
-}
 </script>
 
-<style scoped lang="scss">
-.tags {
-    text-align: left;
-
-    .el-tag {
-        margin-left: 10px;
+<style lang="scss" scoped>
+    header {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .el-tag:first-child {
-        margin-left: 0;
-    }
-}
+    .l-content {
+        display: flex;
+        align-items: center;
 
-.el-tag.active {
-    background-color: aqua;
-    color: #fff;
-}
+        .el-button {
+            margin-right: 20px;
+        }
+    }
+
+    .r-content {
+        .user {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    }
+</style>
+
+<style lang="scss">
+    .el-breadcrumb__item {
+        .el-breadcrumb__inner {
+            color: #666666;
+            font-weight: normal;
+        }
+
+        &:last-child {
+            .el-breadcrumb__inner {
+                color: #ffffff;
+            }
+        }
+    }
 </style>

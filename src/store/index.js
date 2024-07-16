@@ -7,12 +7,16 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // state: 存放变量
   state: {
-    count: 1
+    count: 1,
+    isCollapse: true
   },
   // mutation: 存放方法
   mutations: {
     increment (state) {
       state.count++
+    },
+    collapseMenu(state) {
+      state.isCollapse = !state.isCollapse
     }
   },
   actions: {
