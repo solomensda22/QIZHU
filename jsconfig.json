@@ -1,11 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "ES5", // 目标 JavaScript 版本
-    "module": "commonjs", // 模块系统
-    "baseUrl": "./", // 基本路径，相对于该文件所在目录
-    "paths": {
-      "@/*": ["src/*"] // 路径映射，用于模块导入
-    }
-  },
-
+	"compilerOptions": {
+		"target": "ES5", // 目标 JavaScript 版本
+		"module": "commonjs", // 模块系统
+		"baseUrl": "./", // 基本路径，相对于该文件所在目录
+		"paths": {
+			"@/*": ["src/*"] // 路径映射，用于模块导入
+		}
+	}
 }

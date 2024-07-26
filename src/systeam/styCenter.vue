@@ -1,15 +1,16 @@
 <template>
 	<div id="styCenter">
-		<Nav></Nav>
-		<router-view></router-view>
+		<!-- <Tab></Tab> -->
+		<Transition name="fade-transform" mode="out-in">
+			<router-view :key="key"></router-view>
+		</Transition>
 	</div>
 </template>
-
 <script>
-import Nav from "./nav.vue";
+// import Tab from "./CommonTab.vue";
 export default {
 	components: {
-		Nav,
+		// Tab,
 	},
 	data() {
 		return {};
@@ -18,14 +19,14 @@ export default {
 	methods: {
 		collapseMenu() {
 			this.$store.commit("collapseMenu");
-    
+		},
+	},
+	computed: {
+		key() {
+			return this.$route.path;
 		},
 	},
 };
 </script>
 
-<style lang="scss" scoped>
-.styCenter{
-  background-color: #333;
-}
-</style>
+<style lang="scss" scoped></style>

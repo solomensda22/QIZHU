@@ -28,11 +28,11 @@
 		<router-link to="/cssYS/HomePage/asa">asa</router-link>
 		<div>
 			<!-- //<keep-alive :include="['HomePage','bbb']"></keep-alive> 缓存多个组件 -->
-			<keep-alive >
-				<!-- 添加include="HomePage"会导致路由生命钩子函数失效 -->
-				<!-- // 路由缓存 include="HomePage" 缓存组件名字 -->
-				<router-view></router-view>
-			</keep-alive>
+			<!-- <keep-alive> -->
+			<!-- 添加include="HomePage"会导致路由生命钩子函数失效 -->
+			<!-- // 路由缓存 include="HomePage" 缓存组件名字 -->
+			<router-view></router-view>
+			<!-- </keep-alive> -->
 		</div>
 	</main>
 </template>
@@ -64,7 +64,6 @@ export default {
 		console.log("在渲染该组件的对应路由被 confirm 前调用");
 		next();
 	},
-	
 };
 </script>
 

@@ -1,9 +1,7 @@
 <template>
 	<div>
-		bbbb{{ id }}
-
+		我是bbbb啊{{ id }}
 		<br />
-
 		<router-view></router-view>
 	</div>
 </template>
@@ -27,7 +25,6 @@ export default {
 		// 组件被移除时调用
 		console.log("组件被移除时调用");
 	},
-	
 };
 </script>
 
